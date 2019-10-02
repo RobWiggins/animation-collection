@@ -6,7 +6,7 @@ export default class Header extends Component {
     return (
       <div className="header">
         <header className="App-header">
-          <h1>Welcome to my animations laboratory</h1>
+          <h1>Welcome to my animation laboratory</h1>
         </header>
       </div>
     )

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import * as PIXI from 'pixi.js'
-import './Cat.css'
+import './RotateImage.css'
 
-export default class Cat extends Component {
+export default class RotateImage extends Component {
 
   constructor(props) {
     super(props)
@@ -57,9 +57,9 @@ export default class Cat extends Component {
   }
 
   render() {
-
     return (
       <div className="anim-container">
+        <h2>Rotating image around its center</h2>
         <div ref={this.pxrender} id="pxrender"></div>
       </div>
     )
