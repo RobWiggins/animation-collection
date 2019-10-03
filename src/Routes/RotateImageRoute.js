@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RotateImage from '../../Components/RotateImage/RotateImage'
+import RotateImage from '../Components/RotateImage/RotateImage'
 
 export default class RotateImageRoute extends Component {
 

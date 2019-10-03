@@ -6,8 +6,7 @@ export default class RotateImage extends Component {
 
   constructor(props) {
     super(props)
-    // ref updates happen before componentDidMount or componentDidUpdate
-    // lifecycle methods. Using a ref to work outside react state with third 
+    // Using a ref to work outside react state with third 
     // party pixi library. pxrender will hold the Pixi app
     this.pxrender = React.createRef()
   }
@@ -32,7 +31,7 @@ export default class RotateImage extends Component {
     const cat = new PIXI.Sprite(texture)
     // anchor sets the origin point for the "text"
     cat.anchor.set(.5)
-    cat.width = 75
+    cat.width = 75 // make sure to maintain original picture size ratio 
     cat.height = 100
     // Make cat rotate around its center
     cat.x = cat.width / 2
