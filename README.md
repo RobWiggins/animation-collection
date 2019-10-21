@@ -1,4 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Animation Collection
+
+An aggregate of easily repurposed web animations built with PixiJS (WIP). Current examples include spinning svg images (custom loading image) and a line of svg images that vertically accelerate to top (i.e. balloons).
+
+
+_This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
 
 ## Available Scripts
 
