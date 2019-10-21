@@ -1,6 +1,6 @@
 # Animation Collection
 
-An aggregate of easily repurposed web animations built with PixiJS (WIP). Current examples include spinning svg images (custom loading image) and a line of svg images that vertically accelerate to top (i.e. balloons).
+An aggregate of easily repurposed web animations built with PixiJS and React (WIP), specifically interesting because this uses the native PixiJS library via refs rather than other more limited React specific libraries. Current examples include spinning svg images (custom loading image) and a line of svg images that vertically accelerate to top (i.e. balloons).
 
 
 _This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
