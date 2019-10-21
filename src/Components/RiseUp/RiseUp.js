@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import * as PIXI from 'pixi.js'
 import './RiseUp.css'
-import { SSL_OP_SINGLE_DH_USE } from 'constants'
 
 export default class RotateImage extends Component {
   constructor(props) {
@@ -13,8 +12,9 @@ export default class RotateImage extends Component {
 
   componentDidMount() {
     // On component display, mount the pixi animation
+    // width and height controls the size of the canvas
     const app = new PIXI.Application({
-      width: 500,
+      width: 300,
       height: 300,
       // transparent: true,
       backgroundColor: 1,
@@ -32,19 +32,16 @@ export default class RotateImage extends Component {
     // Move container to the center
     container.x = app.screen.width / 2
     container.y = app.screen.height / 2
-
-    // Center balloons sprite in local container coordinates
-    // create a 5x1 row of balloons
+    
     let numImages = 4
     const balloonSet = []
     for (let i = 1; i <= numImages; i++) {
       const balloons = new PIXI.Sprite(texture)
-      // anchor sets the origin point to center for the "text"
-      balloons.anchor.set(1)
+      balloons.anchor.set(.5)
       balloons.width = 60 // make sure to maintain original picture size ratio
       balloons.height = 60
-      // Line balloons on bottom
-      balloons.x = (i / numImages) * container.width
+      // Line balloons evenly on bottom
+      balloons.x = (-app.screen.width / 2) + (app.screen.width * (i / (numImages + 1)))
       balloons.y = container.y
       container.addChild(balloons)
       balloonSet.push(balloons)
@@ -56,12 +53,12 @@ export default class RotateImage extends Component {
       // use delta to create frame-independent image translation
       balloonSet.forEach(balloon => {
         balloon.y += -delta * accelerationDegree
-        accelerationDegree += 0.01
+        accelerationDegree += 0.015
       })
-      // this is hacky and I dont like it. It saves resources by killing the
-      // animation translation when the image height exceeds a certain multiple of
-      // the container height. Problem being, You may need to modify multiples for varying
-      // widths and height.
+      // this is a bit hacky. It saves resources by killing the
+      // vertical animation translation when the image height exceeds a 
+      // certain multiple of the container height. Problem being, You may 
+      // need to modify multiples for varying widths and height.
       if (-balloonSet[balloonSet.length - 1].y > container.height * 4) {
         app.ticker.stop()
       }
@@ -71,7 +68,7 @@ export default class RotateImage extends Component {
   render() {
     return (
       <div className="anim-container-rise">
-        <h2>Float image from bottom to top</h2>
+        <h2>Translate image from bottom to top (accelerates)</h2>
         <div ref={this.pxrender} id="pxrender"></div>
       </div>
     )
